@@ -14,6 +14,23 @@ let ano = hoje.getFullYear();
 
 const meses = [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ];
 
+//Array de eventos padrão
+
+let eventosLista = [
+    {
+        dia: 25,
+        mes: 4,
+        ano: 2024,
+        eventos: [{
+            nome: "Reunião",
+            horario: "10:00",
+            descricao: "Reunião com a equipe de marketing"
+        
+        },
+    ],
+    },
+];
+
 // funçao para adicionar dias
 function iniciarCalendario(){
     //para obter os dias do mês anterior e o mês atual, todos os dias e os dias restantes do próximo mês
@@ -37,13 +54,32 @@ function iniciarCalendario(){
     }
      //dias do mês atual
     for(let i = 1; i <= ultimoDiaMes; i++){ 
+
+        let temEvento = false;
+        eventosLista.forEach((eventoObj) => {
+            if(eventoObj.dia === i && eventoObj.mes === mes + 1 && eventoObj.ano === ano){
+                temEvento = true;
+            }
+        
+        })
+
         //se o dia for hoje adicione a aula hoje
         if(i === new Date().getDate()&& ano === new Date().getFullYear() && mes === new Date().getMonth()) {
+           if(temEvento){
+            dias += `<div class="dia hoje temEvento">${i}</div>`;
+           }
+           else{
             dias += `<div class="dia hoje">${i}</div>`;
+           }
         }
         //adiciona o restante como está
         else{
-            dias += `<div class="dia">${i}</div>`;
+            if(temEvento){
+                dias += `<div class="dia  evento">${i}</div>`;
+               }
+               else{
+                dias += `<div class="dia ">${i}</div>`;
+               }
         }
     }
 
@@ -121,3 +157,61 @@ function reuniaoData(){
     }
     alert("Data inválida");
 }
+
+const addEventoBtn = document.querySelector(".add-evento"),
+ addEventoConteiner = document.querySelector(".add-evento-box"),
+  addEventoFecharBtn = document.querySelector(".close"),
+  addEventoTitulo = document.querySelector(".evento-nome"),
+  addEventoForms = document.querySelector(".horario-evento"),
+  addEventoDescricao = document.querySelector(".descricao-evento");
+
+
+addEventoBtn.addEventListener("click", () => {
+    addEventoConteiner.classList.toggle("ativo");
+});
+addEventoFecharBtn.addEventListener("click", () => {
+    addEventoConteiner.classList.remove("ativo");
+});
+
+
+document.addEventListener("click", (e) => { 
+    if(e.target !== addEventoBtn  &&  !addEventoConteiner.contains(e.target)){
+        addEventoConteiner.classList.remove("ativo");
+    }
+});
+
+//permitir apenas 50 caracteres no título
+addEventoTitulo.addEventListener("input", (e) => {
+    addEventoTitulo.value = addEventoTitulo.value.slice(0, 50);
+});
+
+//formato de hora de e para hora
+addEventoForms.addEventListener("input", (e) => {
+
+    addEventoForms.value = addEventoForms.value.replace(/[^0-9:]/g, "");
+    if(addEventoForms.value.length === 2){
+        addEventoForms.value += ":";
+    }
+    if(addEventoForms.value.length > 5){
+        addEventoForms.value = addEventoForms.value.slice(0, 5);
+
+    }
+});
+
+//permitir apenas 50 caracteres no título
+addEventoTitulo.addEventListener("input", (e) => {
+    addEventoTitulo.value = addEventoTitulo.value.slice(0, 50);
+});
+
+//formato de hora de e para hora
+addEventoDescricao.addEventListener("input", (e) => {
+
+    addEventoDescricao.value = addEventoDescricao.value.replace(/[^0-9:]/g, "");
+    if(addEventoDescricao.value.length === 2){
+        addEventoDescricao.value += ":";
+    }
+    if(addEventoDescricao.value.length > 5){
+        addEventoDescricao.value = addEventoDescricao.value.slice(0, 5);
+
+    }
+});
