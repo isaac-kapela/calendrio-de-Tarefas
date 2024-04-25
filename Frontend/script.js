@@ -66,7 +66,7 @@ function iniciarCalendario(){
         //se o dia for hoje adicione a aula hoje
         if(i === new Date().getDate()&& ano === new Date().getFullYear() && mes === new Date().getMonth()) {
            if(temEvento){
-            dias += `<div class="dia hoje temEvento">${i}</div>`;
+            dias += `<div class="dia hoje evento">${i}</div>`;
            }
            else{
             dias += `<div class="dia hoje">${i}</div>`;
