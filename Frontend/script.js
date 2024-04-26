@@ -31,24 +31,11 @@ const meses = [
   "Dezembro",
 ];
 
-// let eventosLista = [
-//   {
-//     dia: 25,
-//     mes: 4,
-//     ano: 2024,
-//     eventos: [
-//       {
-//         nome: "Reunião",
-//         horario: "10:00",
-//         descricao: "Reunião com a equipe de marketing",
-//       },
-//     ],
-//   },
-// ];
+
 
 let eventosLista =[];
 
-carregarEvento
+carregarEvento();
 function iniciarCalendario() {
   const primeiroDia = new Date(ano, mes, 1);
   const ultimoDia = new Date(ano, mes + 1, 0);
@@ -180,12 +167,17 @@ const addEventoBtn = document.querySelector(".add-evento"),
   addEventoForms = document.querySelector(".horario-evento"),
   addEventoFormsFim = document.querySelector(".descricao-evento");
 
+
+
 addEventoBtn.addEventListener("click", () => {
   addEventoConteiner.classList.toggle("ativo");
 });
+
+
 addEventoFecharBtn.addEventListener("click", () => {
   addEventoConteiner.classList.remove("ativo");
 });
+
 
 document.addEventListener("click", (e) => {
   if (e.target !== addEventoBtn && !addEventoConteiner.contains(e.target)) {
