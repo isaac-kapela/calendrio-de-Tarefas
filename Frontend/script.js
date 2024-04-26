@@ -185,6 +185,7 @@ addEventoTitulo.addEventListener("input", (e) => {
 
 addEventoForms.addEventListener("input", (e) => {
   addEventoForms.value = addEventoForms.value.replace(/[^0-9:]/g, "");
+  console.log(addEventoForms.value);
   if (addEventoForms.value.length === 2) {
     addEventoForms.value += ":";
   }
@@ -196,6 +197,18 @@ addEventoForms.addEventListener("input", (e) => {
 addEventoFormsFim.addEventListener("input", (e) => {
   addEventoFormsFim.value = addEventoFormsFim.value.slice(0, 50);
 });
+
+addEventoFormsFim.addEventListener("input", (e) => {
+  addEventoFormsFim.value = addEventoFormsFim.value.replace(/[^0-9:]/g, "");
+  console.log(addEventoFormsFim.value);
+  if (addEventoFormsFim.value.length === 2) {
+    addEventoFormsFim.value += ":";
+  }
+  if (addEventoFormsFim.value.length > 5) {
+    addEventoFormsFim.value = addEventoFormsFim.value.slice(0, 5);
+  }
+});
+
 
 function addOuvinte() {
   const dias = document.querySelectorAll(".dia");
@@ -253,7 +266,7 @@ function atualizarEventos(data) {
                     <span>${evento.horario}</span>
                 </div>
                 <div class="fim-evento">
-                    <p>${evento.descricao}</p>
+                    <p>${evento.fim}</p>
                 </div>
             </div>
         `;
