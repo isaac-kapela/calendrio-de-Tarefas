@@ -34,7 +34,8 @@ const meses = [
 
 let eventosLista =[];
 
-carregarEvento
+carregarEvento();
+
 function iniciarCalendario() {
   const primeiroDia = new Date(ano, mes, 1);
   const ultimoDia = new Date(ano, mes + 1, 0);
@@ -91,7 +92,8 @@ function iniciarCalendario() {
   }
   diasContainer.innerHTML = dias;
 
-  addOuvinte();
+  addOuvinte(); 
+
 }
 
 iniciarCalendario();
@@ -230,7 +232,25 @@ function addOuvinte() {
       atualizarEventos(Number(e.target.innerHTML));
     });
   });
+
+  const eventos = document.querySelectorAll(".evento");
+
+  eventos.forEach((evento) => {
+    evento.addEventListener("click", (e) => {
+      const eventoTitulo = e.currentTarget.querySelector(".titulo h3").textContent;
+      const eventoDescricao = e.currentTarget.querySelector(".descricao p").textContent;
+      const eventoHorario = e.currentTarget.querySelector(".horario-evento span").textContent;
+      const [horaInicio, horaFim] = eventoHorario.split(" - ");
+
+      addEventoConteiner.classList.add("ativo");
+      addEventoTitulo.value = eventoTitulo;
+      addEventoDescricao.value = eventoDescricao;
+      addEventoForms.value = horaInicio;
+      addEventoFormsFim.value = horaFim;
+    });
+  });
 }
+
 
 function getDiaAtvo(data) {
   const dia = new Date(ano, mes, data);
@@ -402,6 +422,7 @@ eventosContainer.addEventListener("click", (e) => {
     atualizarEventos(ativoDia);
   }
 });
+
 
 function salvarEvento(){
     console.log("deu bom!!");
