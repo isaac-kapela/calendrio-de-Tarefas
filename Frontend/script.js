@@ -176,7 +176,7 @@ const addEventoBtn = document.querySelector(".add-evento"),
   addEventoFecharBtn = document.querySelector(".close"),
   addEventoTitulo = document.querySelector(".evento-nome"),
   addEventoForms = document.querySelector(".horario-evento"),
-  addEventoDescricao = document.querySelector(".descricao-evento");
+  addEventoFormsFim = document.querySelector(".descricao-evento");
 
 addEventoBtn.addEventListener("click", () => {
   addEventoConteiner.classList.toggle("ativo");
@@ -205,8 +205,8 @@ addEventoForms.addEventListener("input", (e) => {
   }
 });
 
-addEventoDescricao.addEventListener("input", (e) => {
-  addEventoDescricao.value = addEventoDescricao.value.slice(0, 50);
+addEventoFormsFim.addEventListener("input", (e) => {
+  addEventoFormsFim.value = addEventoFormsFim.value.slice(0, 50);
 });
 
 function addOuvinte() {
@@ -287,34 +287,34 @@ function atualizarEventos(data) {
 addEventoSubmit.addEventListener("click", () => {
   const eventoTitulo = addEventoTitulo.value;
   const eventoHorario = addEventoForms.value;
-  const eventoDescricao = addEventoDescricao.value;
+  const eventoTermino = addEventoFormsFim.value;
 
-  if (eventoTitulo === "" || eventoHorario === "" || eventoDescricao === "") {
+  if (eventoTitulo === "" || eventoHorario === "" || eventoTermino === "") {
     alert("Por favor, preencha todos os campos");
     return;
   }
 
   const HoraReuniao = eventoHorario.split(":");
-  const descricao = eventoDescricao.split(":");
+  const FimEvento = eventoTermino.split(":");
 
   if (
     HoraReuniao.length !== 2 ||
-    descricao.length !== 2 ||
+    FimEvento.length !== 2 ||
     HoraReuniao[0] > 23 ||
     HoraReuniao[1] > 59 ||
-    descricao[0] > 23 ||
-    descricao[1] > 59
+    FimEvento[0] > 23 ||
+    FimEvento[1] > 59
   ) {
     alert("Por favor, insira um horário válido");
     return;
   }
 
   const horaDe = converterTempo(eventoHorario);
-  const descricaoDe = converterTempo(eventoDescricao);
+  const finalEvento = converterTempo(eventoTermino);
 
   const NovaTarefa = {
     nome: eventoTitulo,
-    horario: horaDe + " - " + descricaoDe,
+    horario: horaDe + " - " + finalEvento,
   };
 
   let eventoAdicionado = false;
@@ -342,7 +342,7 @@ addEventoSubmit.addEventListener("click", () => {
  
 addEventoTitulo.value = "";
 addEventoForms.value = ""; 
-addEventoDescricao.value = "";
+addEventoFormsFim.value = "";
 
 atualizarEventos(ativoDia);
 
