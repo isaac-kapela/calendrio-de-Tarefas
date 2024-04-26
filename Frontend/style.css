@@ -355,24 +355,20 @@ body{
     color: #878895;
 
 }
-.add-evento-box {
+
+.eventos .add-evento-box{
     position: absolute;
-    bottom: 30%; 
+    bottom: 100px;
     left: 50%;
     width: 90%;
     max-height: 0;
     overflow: hidden;
     border-radius: 5px;
     background: #fff;
-    transform: translate(-50%, 50%);
+    transform: translateX(-50%);
     transition: max-height 0.5s;
 }
-
-.ativo {
-    display: block;
-}
-
-.add-evento-box.ativo {
+.add-evento-box.ativo{
     max-height: 300px;
 }
 
