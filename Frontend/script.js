@@ -313,7 +313,7 @@ addEventoSubmit.addEventListener("click", () => {
   const descricaoDe = converterTempo(eventoDescricao);
 
   const NovaTarefa = {
-    titulo: eventoTitulo,
+    nome: eventoTitulo,
     horario: horaDe + " - " + descricaoDe,
   };
 
@@ -329,32 +329,34 @@ addEventoSubmit.addEventListener("click", () => {
   }
 
   if (!eventoAdicionado) {
-    const novoEvento = {
+    eventosLista.push({
       dia: ativoDia,
       mes: mes + 1,
       ano: ano,
       eventos: [NovaTarefa],
-    };
-    eventosLista.push(novoEvento);
+    });
   }
-});
 
-addEventoConteiner.classList.remove("ativo");
+ addEventoConteiner.classList.remove("ativo");
 
+ 
 addEventoTitulo.value = "";
 addEventoForms.value = ""; 
 addEventoDescricao.value = "";
 
 atualizarEventos(ativoDia);
 
-function converterTempo(tempo){
-    const tempoArray = tempo.split(":");
-    let hora = parseInt(tempoArray[0], 10);
-    const minuto = tempoArray[1];
-    const formato = hora >= 12 ? "PM" : "AM";
-    hora = hora % 12;
-    hora = hora ? hora : 12; 
-    const tempoFinal = hora + ":" + minuto + " " + formato;
+});
 
-    return tempoFinal;
+
+
+function converterTempo(tempo){
+    let tempoArray = tempo.split(":");
+    let hora = tempoArray[0];
+    let minuto = tempoArray[1];
+    let formato = hora >= 12 ? "PM" : "AM";
+    hora = hora % 12 || 12;
+     tempo = hora + ":" + minuto + " " + formato;
+
+    return tempo;
 }
