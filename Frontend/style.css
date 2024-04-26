@@ -343,9 +343,20 @@ body{
 }
 .eventos .evento:hover::after{
     display: flex;
+
+}
+.eventos .sem-evento{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #878895;
+
 }
 
-.add-evento-box{
+.eventos .add-evento-box{
     position: absolute;
     bottom: 100px;
     left: 50%;
