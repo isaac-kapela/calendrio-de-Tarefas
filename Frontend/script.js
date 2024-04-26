@@ -351,6 +351,7 @@ addEventoSubmit.addEventListener("click", () => {
   addEventoTitulo.value = "";
   addEventoForms.value = "";
   addEventoFormsFim.value = "";
+  addEventoDescricao.value = "";
 
   atualizarEventos(ativoDia);
 
