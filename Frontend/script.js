@@ -11,6 +11,7 @@ const eventoData = document.querySelector(".eventoData");
 const eventosContainer = document.querySelector(".eventos");
 const addEventoSubmit = document.querySelector(".add-evento-btn");
 
+
 let hoje = new Date();
 let ativoDia;
 let mes = hoje.getMonth();
@@ -36,6 +37,21 @@ const meses = [
 let eventosLista =[];
 
 carregarEvento();
+// let eventosLista = [
+//   {
+//     dia: 25,
+//     mes: 4,
+//     ano: 2024,
+//     eventos: [
+//       {
+//         nome: "Reunião",
+//         horario: "10:00",
+//         descricao: "Reunião com a equipe de marketing",
+//       },
+//     ],
+//   },
+// ];
+
 function iniciarCalendario() {
   const primeiroDia = new Date(ano, mes, 1);
   const ultimoDia = new Date(ano, mes + 1, 0);
@@ -276,10 +292,6 @@ function atualizarEventos(data) {
   }
 
   eventosContainer.innerHTML = eventos;
-
-  salvarEvento();
-
-
 }
 
 addEventoSubmit.addEventListener("click", () => {
@@ -335,72 +347,26 @@ addEventoSubmit.addEventListener("click", () => {
     });
   }
 
-  addEventoConteiner.classList.remove("ativo");
+ addEventoConteiner.classList.remove("ativo");
 
-  addEventoTitulo.value = "";
-  addEventoForms.value = "";
-  addEventoFormsFim.value = "";
+ 
+addEventoTitulo.value = "";
+addEventoForms.value = ""; 
+addEventoFormsFim.value = "";
 
-  atualizarEventos(ativoDia);
+atualizarEventos(ativoDia);
 
-  const ativaDiaElemto = document.querySelector(".dia.ativo");
-  if (!ativaDiaElemto.classList.contains("evento")) {
-    ativaDiaElemto.classList.add("evento");
-  }
-});
-
-function converterTempo(tempo) {
-  let tempoArray = tempo.split(":");
-  let hora = tempoArray[0];
-  let minuto = tempoArray[1];
-  let formato = hora >= 12 ? "PM" : "AM";
-  hora = hora % 12 || 12;
-  tempo = hora + ":" + minuto + " " + formato;
-
-  return tempo;
-}
-
-eventosContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains("evento")) {
-    const eventoTitulo = e.target.children[0].children[1].innerHTML;
-
-    eventosLista.forEach((evento) => {
-      if (
-        evento.dia === ativoDia &&
-        evento.mes === mes + 1 &&
-        evento.ano === ano
-      ) {
-        evento.eventos.forEach((evento, index) => {
-          if (evento.nome === eventoTitulo) {
-            evento.eventos.splice(index, 1);
-          }
-        });
-
-        if (evento.eventos.length === 0) {
-          eventosLista.splice(eventosLista.indexOf(evento), 1);
-
-          const ativoDiaElemento = document.querySelector(".dia.ativo");
-          if (ativoDiaElemento.classList.contains("evento")) {
-            ativoDiaElemento.classList.remove("evento");
-          }
-        }
-      }
-    });
-
-    atualizarEventos(ativoDia);
-  }
 });
 
 
-function salvarEvento(){
-    console.log("deu bom!!");
-    localStorage.setItem("eventos", JSON.stringify(eventosLista));
-}
 
-function carregarEvento(){
-    if(localStorage.getItem("eventos" === null)){
-        return;
-    }
-    eventosLista.push(...JSON.parse(localStorage.getItem("eventos")));
+function converterTempo(tempo){
+    let tempoArray = tempo.split(":");
+    let hora = tempoArray[0];
+    let minuto = tempoArray[1];
+    let formato = hora >= 12 ? "PM" : "AM";
+    hora = hora % 12 || 12;
+     tempo = hora + ":" + minuto + " " + formato;
 
+    return tempo;
 }
