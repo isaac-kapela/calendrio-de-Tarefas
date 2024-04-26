@@ -31,20 +31,6 @@ const meses = [
   "Dezembro",
 ];
 
-// let eventosLista = [
-//   {
-//     dia: 25,
-//     mes: 4,
-//     ano: 2024,
-//     eventos: [
-//       {
-//         nome: "Reunião",
-//         horario: "10:00",
-//         descricao: "Reunião com a equipe de marketing",
-//       },
-//     ],
-//   },
-// ];
 
 let eventosLista =[];
 
@@ -178,7 +164,7 @@ const addEventoBtn = document.querySelector(".add-evento"),
   addEventoFecharBtn = document.querySelector(".close"),
   addEventoTitulo = document.querySelector(".evento-nome"),
   addEventoForms = document.querySelector(".horario-evento"),
-  addEventoFormsFim = document.querySelector(".descricao-evento");
+  addEventoFormsFim = document.querySelector(".fim-evento");
 
 addEventoBtn.addEventListener("click", () => {
   addEventoConteiner.classList.toggle("ativo");
@@ -266,7 +252,7 @@ function atualizarEventos(data) {
                 <div class="horario-evento">
                     <span>${evento.horario}</span>
                 </div>
-                <div class="descricao-evento">
+                <div class="fim-evento">
                     <p>${evento.descricao}</p>
                 </div>
             </div>
