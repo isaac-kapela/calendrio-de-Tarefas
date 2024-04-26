@@ -164,7 +164,8 @@ const addEventoBtn = document.querySelector(".add-evento"),
   addEventoFecharBtn = document.querySelector(".close"),
   addEventoTitulo = document.querySelector(".evento-nome"),
   addEventoForms = document.querySelector(".horario-evento"),
-  addEventoFormsFim = document.querySelector(".fim-evento");
+  addEventoFormsFim = document.querySelector(".fim-evento"),
+  addEventoDescricao = document.querySelector(".descricao");
 
 addEventoBtn.addEventListener("click", () => {
   addEventoConteiner.classList.toggle("ativo");
@@ -181,6 +182,10 @@ document.addEventListener("click", (e) => {
 
 addEventoTitulo.addEventListener("input", (e) => {
   addEventoTitulo.value = addEventoTitulo.value.slice(0, 50);
+});
+
+addEventoDescricao.addEventListener("input", (e) => {
+  addEventoDescricao.value = addEventoDescricao.value.slice(0, 50);
 });
 
 addEventoForms.addEventListener("input", (e) => {
@@ -208,7 +213,6 @@ addEventoFormsFim.addEventListener("input", (e) => {
     addEventoFormsFim.value = addEventoFormsFim.value.slice(0, 5);
   }
 });
-
 
 function addOuvinte() {
   const dias = document.querySelectorAll(".dia");
@@ -265,8 +269,8 @@ function atualizarEventos(data) {
                 <div class="horario-evento">
                     <span>${evento.horario}</span>
                 </div>
-                <div class="fim-evento">
-                    <p>${evento.fim}</p>
+                <div class="descricao">
+                    <p>${evento.descricao}</p>
                 </div>
             </div>
         `;
@@ -285,16 +289,15 @@ function atualizarEventos(data) {
   eventosContainer.innerHTML = eventos;
 
   salvarEvento();
-
-
 }
 
 addEventoSubmit.addEventListener("click", () => {
   const eventoTitulo = addEventoTitulo.value;
   const eventoHorario = addEventoForms.value;
   const eventoTermino = addEventoFormsFim.value;
+  const eventoDescricao = addEventoDescricao.value;
 
-  if (eventoTitulo === "" || eventoHorario === "" || eventoTermino === "") {
+  if (eventoTitulo === "" || eventoHorario === "" || eventoTermino === "" || eventoDescricao === "") {
     alert("Por favor, preencha todos os campos");
     return;
   }
@@ -320,6 +323,7 @@ addEventoSubmit.addEventListener("click", () => {
   const NovaTarefa = {
     nome: eventoTitulo,
     horario: horaDe + " - " + finalEvento,
+    descricao: eventoDescricao,
   };
 
   let eventoAdicionado = false;
@@ -397,7 +401,6 @@ eventosContainer.addEventListener("click", (e) => {
     atualizarEventos(ativoDia);
   }
 });
-
 
 function salvarEvento(){
     console.log("deu bom!!");
