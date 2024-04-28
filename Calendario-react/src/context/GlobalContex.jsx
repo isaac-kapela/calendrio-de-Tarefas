@@ -9,7 +9,16 @@ const GolbalContext = React.createContext({
   diaEscolhido: null,
   setDiaEscolhido: (dia) => {},
   mostrarTarefaModal: false,
-  setmostrarTarefaModal: (  ) => {}
+  setmostrarTarefaModal: (  ) => {},
+  despachoTarefa: ( { type, payload } ) => {},
+  salvarTarefa: [],
+  selecionadaTarefa: null,
+  setselecionadaTarefa: (tarefa) => {},
+  setLabels: (labels) => {},
+  aatualizaLabel: () => {},
+  Labels: [],
+  atualizaLabel: () => {},
+  filtrarTarefas: [],
 });   
 
 export default GolbalContext;

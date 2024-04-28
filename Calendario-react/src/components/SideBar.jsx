@@ -1,5 +1,6 @@
 import CriarTarefas from './CriarTarefas';
 import CalendarioPequeno from './CalendarioPequeno';
+import Labels from './Labels';
 
 export default function SideBar() {
   return (
@@ -7,6 +8,7 @@ export default function SideBar() {
     <aside className='border p-5 w-64'>
       <CriarTarefas/>
       <CalendarioPequeno/> 
+      <Labels/>
     </aside>
 
     </>
