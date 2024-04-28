@@ -68,6 +68,12 @@ function BoxContext({ children }) {
     }
   }, [CalendarioPequenoMes]);
 
+  useEffect(() => {
+    if(!mostrarTarefaModal){
+      setselecionadaTarefa(null);
+    }
+  }, [mostrarTarefaModal])
+
   return (
     <GlobalContext.Provider
       value={{

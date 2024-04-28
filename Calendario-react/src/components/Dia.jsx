@@ -6,13 +6,13 @@ import GolbalContext from "../context/GlobalContex";
 
 function Dia({ dia, linhaIdx }) {
   const [diaTarefa, setDiaTarefa] = useState([])
-  const {setDiaEscolhido, setmostrarTarefaModal, salvarTarefa, setselecionadaTarefa } = useContext(GolbalContext);
+  const {setDiaEscolhido, setmostrarTarefaModal, filtrarTarefas, setselecionadaTarefa } = useContext(GolbalContext);
 
   useEffect(() => {
-    console.log({salvarTarefa})
-    const tarefa = salvarTarefa.filter((tarefa) => dayjs(tarefa.dia).format("DD-MM-YY") === dia.format("DD-MM-YY"));
+    console.log({filtrarTarefas})
+    const tarefa = filtrarTarefas.filter((tarefa) => dayjs(tarefa.dia).format("DD-MM-YY") === dia.format("DD-MM-YY"));
     setDiaTarefa(tarefa);
-  }, [salvarTarefa, dia]);
+  }, [filtrarTarefas, dia]);
 
   function obterDiaAtualClass() {
     return dia.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
