@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import GolbalContext from "../context/GlobalContex";
+
 export default function CriarTarefas() {
+  const { setmostrarTarefaModal} = useContext(GolbalContext)
   return (
     <>
-      <button className="border py-2 rounded-full flex items-center shadow-md  hover:shadow-2xl">
+      <button onClick={() => setmostrarTarefaModal(true)} className="border py-2 rounded-full flex items-center shadow-md  hover:shadow-2xl">
         <img
           width="30"
           height="30"

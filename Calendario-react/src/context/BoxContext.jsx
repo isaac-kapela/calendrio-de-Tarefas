@@ -7,6 +7,7 @@ function BoxContext({ children }) {
   const [mesIndex, setMesIndex] = useState(dayjs().month());
   const [CalendarioPequenoMes, setCalendarioPequenoMes] = useState(null);
   const [diaEscolhido, setDiaEscolhido] = useState(null);
+  const [mostrarTarefaModal, setmostrarTarefaModal] = useState(false);
 
   useEffect(() =>{
     if(CalendarioPequenoMes !== null){
@@ -18,7 +19,9 @@ function BoxContext({ children }) {
     <GlobalContext.Provider value={{
        mesIndex, setMesIndex, 
        CalendarioPequenoMes, setCalendarioPequenoMes,
-        diaEscolhido,setDiaEscolhido   }}>
+        diaEscolhido,setDiaEscolhido,
+        mostrarTarefaModal, setmostrarTarefaModal,
+           }}>
       {children}
     </GlobalContext.Provider>
   );

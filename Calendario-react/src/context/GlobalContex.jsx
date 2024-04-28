@@ -8,6 +8,8 @@ const GolbalContext = React.createContext({
   setCalendarioPequenoMes: (index) => {},
   diaEscolhido: null,
   setDiaEscolhido: (dia) => {},
-});
+  mostrarTarefaModal: false,
+  setmostrarTarefaModal: (  ) => {}
+});   
 
 export default GolbalContext;
