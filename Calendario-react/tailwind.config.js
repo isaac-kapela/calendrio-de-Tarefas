@@ -1,4 +1,4 @@
-/* eslint-env node */
+
 import forms from '@tailwindcss/forms';
 
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];

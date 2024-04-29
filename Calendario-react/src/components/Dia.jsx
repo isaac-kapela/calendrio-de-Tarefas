@@ -1,4 +1,3 @@
-// Dia.jsx
 
 import dayjs from "dayjs";
 import PropTypes from "prop-types";
@@ -20,13 +19,13 @@ function Dia({ dia, linhaIdx }) {
       : "";
   }
 
-  // Função para calcular a diferença entre duas horas
+  
   function calcularDuracao(horaInicio, horaFim) {
-    if (!horaInicio || !horaFim) return ""; // Verifica se as horas de início e fim estão definidas
+    if (!horaInicio || !horaFim) return ""; 
     const inicio = dayjs(`2024-01-01 ${horaInicio}`, "YYYY-MM-DD HH:mm");
     const fim = dayjs(`2024-01-01 ${horaFim}`, "YYYY-MM-DD HH:mm");
     const duracaoMinutos = fim.diff(inicio, "minute");
-    if (duracaoMinutos < 0) return "Horário inválido"; // Verifica se o horário de término é anterior ao de início
+    if (duracaoMinutos < 0) return "Horário inválido"; 
     const horas = Math.floor(duracaoMinutos / 60);
     const minutos = duracaoMinutos % 60;
     return `${horas}h ${minutos}min`;
