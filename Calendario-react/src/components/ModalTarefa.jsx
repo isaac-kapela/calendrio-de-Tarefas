@@ -109,7 +109,9 @@ export default function ModalTarefa() {
               </button>
             </div>
           </header>
+
           <div className="p-3">
+          <p className="text-center">{diaEscolhido.format("DD, MMMM  YYYY")}</p>
             <input
               type="text"
               name="titulo"
@@ -129,7 +131,7 @@ export default function ModalTarefa() {
               className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500 block mb-4"
               onChange={handleHoraInicioChange}
             />
-            <p>{diaEscolhido.format("DD, MMMM  YYYY")}</p>
+            
             <input
               type="text"
               name="horaFim"
