@@ -1,12 +1,22 @@
-/** @type {import('tailwindcss').Config} */
+/* eslint-env node */
 import forms from '@tailwindcss/forms';
 
+const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  mode: 'jit',
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      "./index.html",
+      "./src/**/*.{js,jsx,ts,tsx}",
+    ],
+    safelist: [
+      ...labelsClasses.map((lbl) => `bg-${lbl}-500`),
+      ...labelsClasses.map((lbl) => `bg-${lbl}-200`),
+      ...labelsClasses.map((lbl) => `text-${lbl}-400`)
+    ],
+  },
   theme: {
     extend: {
       gridTemplateColumns: {
@@ -14,5 +24,5 @@ export default {
       }
     },
   },
-  plugins: [ forms ],
-}
+  plugins: [forms],
+};
