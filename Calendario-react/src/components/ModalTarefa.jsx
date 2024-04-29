@@ -1,4 +1,3 @@
-
 import { useContext, useState } from "react";
 import GlobalContext from "../context/GlobalContex";
 import dayjs from "dayjs";
@@ -35,14 +34,12 @@ export default function ModalTarefa() {
     const formattedInput = input.replace(/^(\d{2})/, "$1:");
     setHoraInicio(formattedInput);
   }
-  
+
   function handleHoraFimChange(e) {
     const input = e.target.value.replace(/\D/g, "");
     const formattedInput = input.replace(/^(\d{2})/, "$1:");
     setHoraFim(formattedInput);
   }
-  
-  
 
   function handleenviar(e) {
     e.preventDefault();
@@ -64,11 +61,11 @@ export default function ModalTarefa() {
   }
 
   function calcularDuracao(horaInicio, horaFim) {
-    if (!horaInicio || !horaFim) return ""; 
+    if (!horaInicio || !horaFim) return "";
     const inicio = dayjs(horaInicio, "HH:mm");
     const fim = dayjs(horaFim, "HH:mm");
     const duracaoMinutos = fim.diff(inicio, "minute");
-    if (duracaoMinutos < 0) return "Horário inválido"; 
+    if (duracaoMinutos < 0) return "Horário inválido";
     const horas = Math.floor(duracaoMinutos / 60);
     const minutos = duracaoMinutos % 60;
     return `${horas}h ${minutos}min`;
@@ -111,7 +108,9 @@ export default function ModalTarefa() {
           </header>
 
           <div className="p-3">
-          <p className="text-center">{diaEscolhido.format("DD, MMMM  YYYY")}</p>
+            <p className="text-center">
+              {diaEscolhido.format("DD, MMMM  YYYY")}
+            </p>
             <input
               type="text"
               name="titulo"
@@ -131,7 +130,7 @@ export default function ModalTarefa() {
               className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500 block mb-4"
               onChange={handleHoraInicioChange}
             />
-            
+
             <input
               type="text"
               name="horaFim"
@@ -180,9 +179,8 @@ export default function ModalTarefa() {
             >
               Salvar
             </button>
-            <span className="ml-2 text-gray-600">
-              Duração: {calcularDuracao(horaInicio, horaFim)}
-            </span>
+
+            {calcularDuracao(horaInicio, horaFim)}
           </footer>
         </form>
       </div>
@@ -193,4 +191,3 @@ export default function ModalTarefa() {
 ModalTarefa.propTypes = {
   diaEscolhido: PropTypes.object.isRequired,
 };
-
