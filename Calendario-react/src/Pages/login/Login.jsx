@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import * as S from "./Login_style";
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -71,39 +71,38 @@ function Login() {
                 <ul className="list-social-media">
                   <a className="link-social-media" href="#">
                     <li className="item-social-media">
-                      <i className="fab fa-facebook-f"></i>
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
                     </li>
                   </a>
                   <a className="link-social-media" href="#">
                     <li className="item-social-media">
-                      <i className="fab fa-google-plus-g"></i>
+                    <img width="64" height="64" src="https://img.icons8.com/arcade/64/portfolio.png" alt="portfolio"/>
                     </li>
                   </a>
                   <a className="link-social-media" href="#">
                     <li className="item-social-media">
-                      <i className="fab fa-linkedin-in"></i>
+                    <img width="48" height="48" src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>
                     </li>
                   </a>
                 </ul>
               </div>
-              <p className="description description-second">ou use seu e-mail para registrar-se:</p>
+              
               <form className="form">
                 <label className="label-input" htmlFor="">
-                  <i className="far fa-user icon-modify"></i>
-                <input type="text" placeholder="Digite o seu email" value={email} onChange={(e) => [setEmail(e.target.value), setErro("")]}/>
+                <img className='mr-4' width="24" height="24" src="https://img.icons8.com/material-sharp/24/new-post.png" alt="new-post"/>                <input type="text" placeholder="Digite o seu email" value={email} onChange={(e) => [setEmail(e.target.value), setErro("")]}/>
                 </label>
 
                 <label className="label-input" htmlFor="">
-                  <i className="far fa-envelope icon-modify"></i>
+                <img className='mr-4' width="24" height="24" src="https://img.icons8.com/material-sharp/24/new-post.png" alt="new-post"/>
                   <input type="email" placeholder="Comfirmar email" value={emailConfri} onChange={(e) => [setEmailConfri(e.target.value), setErro("")]} />
                 </label>
 
-                <label className="label-input" htmlFor="">
-                  <i className="fas fa-lock icon-modify"></i>
+                <label className="label-input " htmlFor="">
+                <img className='mr-4' width="32" height="32" src="https://img.icons8.com/stamp/32/password.png" alt="password"/>
                   <input type="password" placeholder="Senha" value={senha} onChange={(e) => [setSenha(e.target.value), setErro("")]} />
                 </label>
 
-                <span>{erro}</span>
+                <span className='text-red-500'>{erro}</span>
 
                 <button className="btn btn-second" type='submit' onClick={handleCadastro}>Registrar-se</button>
               </form>
@@ -113,31 +112,32 @@ function Login() {
             <div className="first-column">
               <h2 className="title title-primary">Olá, amigo!</h2>
               <p className="description description-primary">Digite seus dados pessoais</p>
-              <p className="description description-primary">e comece a jornada conosco</p>
+              <p className="description description-primary">e seja bem vindo</p>
               <button id="signup" className="btn btn-primary" onClick={handleCliqueCadastro}>Cadastrar-se</button>
             </div>
             <div className="second-column">
-              <h2 className="title title-second">Entrar no Desenvolvedor</h2>
+              <h2 className="title title-second">Entrar no gerenciador de tarefas</h2>
               <div className="social-media">
                 <ul className="list-social-media">
                   <a className="link-social-media" href="#">
                     <li className="item-social-media">
-                      <i className="fab fa-facebook-f"></i>
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
                     </li>
                   </a>
                   <a className="link-social-media" href="#">
                     <li className="item-social-media">
-                      <i className="fab fa-google-plus-g"></i>
+                    <img width="64" height="64" src="https://img.icons8.com/arcade/64/portfolio.png" alt="portfolio"/>
+                    
                     </li>
                   </a>
                   <a className="link-social-media" href="#">
                     <li className="item-social-media">
-                      <i className="fab fa-linkedin-in"></i>
+                    <img width="48" height="48" src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>
                     </li>
                   </a>
                 </ul>
               </div>
-              <p className="description description-second">ou use sua conta de e-mail:</p>
+            
               <form className="form">
 
                 <label className="label-input">
@@ -149,7 +149,7 @@ function Login() {
                   <i className="fas fa-lock icon-modify"></i>
                   <input type="password" placeholder="Digite a sua senha" value={senha} onChange={(e) => [setSenha(e.target.value), setErro("")]} />
                 </label>
-                <span>{erro}</span>
+                <span className='text-red-500'>{erro}</span>
                 <button className="btn btn-second" onClick={handleEntrar}>Entrar</button>
               </form>
             </div>

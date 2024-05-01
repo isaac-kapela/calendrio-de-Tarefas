@@ -1,8 +1,9 @@
-// CalendarioHeader
 import LogoMeet from "../assets/logo-meet.png";
 import { useContext } from "react";
 import GolbalContext from "../context/GlobalContex";
 import dayjs from "dayjs";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function CalendarioHeader() {
   const { mesIndex, setMesIndex } = useContext(GolbalContext);
@@ -17,6 +18,14 @@ export default function CalendarioHeader() {
     setMesIndex(
       mesIndex === dayjs().month() ? mesIndex + Math.random() : dayjs().month()
     );
+  }
+
+  const { deslogar } = useAuth();
+  const navegar = useNavigate();
+
+  function handleDeslogar() {
+    deslogar();
+    navegar("/");
   }
   return (
     <>
@@ -53,9 +62,17 @@ export default function CalendarioHeader() {
             />
           </span>
         </button>
+
         <h2 className="ml-4 text-xl text-gray-500 font-bold">
           {dayjs(new Date(dayjs().year(), mesIndex)).format("MMMM YYYY")}
         </h2>
+        <button
+          onClick={handleDeslogar}
+          type="submit"
+          className="ml-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Sair
+        </button>
       </header>
     </>
   );
