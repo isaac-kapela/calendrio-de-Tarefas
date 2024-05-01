@@ -44,7 +44,7 @@ body {
 }
 
 .title {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: bold;
     text-transform: capitalize;
 }
