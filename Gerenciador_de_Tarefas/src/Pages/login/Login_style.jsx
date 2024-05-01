@@ -26,7 +26,7 @@ body {
     background-color: #fff;
     border-radius: 15px;
     width: 960px;
-    height: 50%;
+    height: 55%;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -44,7 +44,7 @@ body {
 }
 
 .title {
-    font-size: 28px;
+    font-size: 25px;
     font-weight: bold;
     text-transform: capitalize;
 }
