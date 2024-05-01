@@ -18,6 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
     background-color: #ecf0f1;
 }
 
@@ -78,7 +79,7 @@ body {
     padding: 10px 50px;
     cursor: pointer;
     font-weight: bold;
-    width: 150px;
+    width: 180px;
     align-self: center;
     border: none;
     margin-top: 1rem;
@@ -191,7 +192,7 @@ input:-webkit-autofill {
     padding: 0 5px;
 }
 
-/* second content */
+
 
 .second-content {
     position: absolute;
@@ -272,7 +273,6 @@ input:-webkit-autofill {
     animation: deslocamentoDir 1.3s;
 }
 
-/* ANIMAÇÃO CSS PARA O CONTEÚDO */
 
 @keyframes deslocamentoEsq {
     from {
@@ -318,7 +318,6 @@ input:-webkit-autofill {
     }
 }
 
-/* ANIMAÇÃO CSS */
 
 @keyframes slidein {
     from {
@@ -374,7 +373,6 @@ input:-webkit-autofill {
     }
 }
 
-/* VERSÃO MOBILE */
 
 @media screen and (max-width: 1040px) {
     .content {
@@ -410,7 +408,7 @@ input:-webkit-autofill {
         width: 90%;
     }
 
-    /* ANIMAÇÃO MOBILE CSS */
+    
 
     @keyframes deslocamentoEsq {
         from {
