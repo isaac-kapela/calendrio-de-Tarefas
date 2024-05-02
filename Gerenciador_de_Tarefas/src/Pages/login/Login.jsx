@@ -89,16 +89,16 @@ function Login() {
               
               <form className="form">
                 <label className="label-input" htmlFor="">
-                <img className='mr-4' width="24" height="24" src="https://img.icons8.com/material-sharp/24/new-post.png" alt="new-post"/>                <input type="text" placeholder="Digite o seu email" value={email} onChange={(e) => [setEmail(e.target.value), setErro("")]}/>
+                <img  width="24" height="24" src="https://img.icons8.com/material-sharp/24/new-post.png" alt="new-post"/>                <input type="text" placeholder="Digite o seu email" value={email} onChange={(e) => [setEmail(e.target.value), setErro("")]}/>
                 </label>
 
                 <label className="label-input" htmlFor="">
-                <img className='mr-4' width="24" height="24" src="https://img.icons8.com/material-sharp/24/new-post.png" alt="new-post"/>
+                <img  width="24" height="24" src="https://img.icons8.com/material-sharp/24/new-post.png" alt="new-post"/>
                   <input type="email" placeholder="Comfirmar email" value={emailConfri} onChange={(e) => [setEmailConfri(e.target.value), setErro("")]} />
                 </label>
 
                 <label className="label-input " htmlFor="">
-                <img className='mr-4' width="32" height="32" src="https://img.icons8.com/stamp/32/password.png" alt="password"/>
+                <img  width="32" height="32" src="https://img.icons8.com/stamp/32/password.png" alt="password"/>
                   <input type="password" placeholder="Digite a sua senha" value={senha} onChange={(e) => [setSenha(e.target.value), setErro("")]} />
                 </label>
 
@@ -121,18 +121,18 @@ function Login() {
                 <ul className="list-social-media">
                   <a className="link-social-media" href="https://www.facebook.com/isaac.kapela.1/photos_by?locale=pt_BR">
                     <li className="item-social-media">
-                    <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
+                    <img width="30" height="30" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
                     </li>
                   </a>
                   <a className="link-social-media" href="https://kapela.vercel.app/">
                     <li className="item-social-media">
-                    <img width="64" height="64" src="https://img.icons8.com/arcade/64/portfolio.png" alt="portfolio"/>
+                    <img width="30" height="30" src="https://img.icons8.com/arcade/64/portfolio.png" alt="portfolio"/>
                     
                     </li>
                   </a>
                   <a className="link-social-media" href="https://www.linkedin.com/in/isaac-kapela-a75141250/">
                     <li className="item-social-media">
-                    <img width="48" height="48" src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>
+                    <img width="30" height="30" src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>
                     </li>
                   </a>
                 </ul>
