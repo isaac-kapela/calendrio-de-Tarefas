@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { BrowserRouter , Routes, Route } from "react-router-dom";
 import Login from "../Pages/login/Login";
 import Home from "../Pages/Home/Home";
-import Erro from "../Pages/404-ERRO/Erro";
+import Erro from "../Pages/404-ERRO/NaoEcontrado";
 import PropTypes from 'prop-types';
 import useAuth from "../hooks/useAuth";
 

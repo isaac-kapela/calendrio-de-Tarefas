@@ -60,6 +60,7 @@ function Dia({ dia, linhaIdx }) {
 
 Dia.propTypes = {
   dia: PropTypes.object.isRequired,
+  linhaIdx: PropTypes.number.isRequired,
 };
 
 export default Dia;
