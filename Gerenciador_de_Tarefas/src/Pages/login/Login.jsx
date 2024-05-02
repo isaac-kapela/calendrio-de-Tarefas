@@ -57,7 +57,7 @@ function Login() {
   return (
     <>
       <S.LoginContainer>
-        <div className={`container ${fazerLogin ? 'sign-in-js' : 'sign-up-js'}`}>
+        <div className={`container  ${fazerLogin ? 'sign-in-js' : 'sign-up-js'}`}>
           <div className="content first-content">
             <div className="first-column">
               <h2 className="title title-primary">Bem-vindo de volta!</h2>
@@ -116,7 +116,7 @@ function Login() {
               <button id="signup" className="btn btn-primary" onClick={handleCliqueCadastro}>Cadastrar-se</button>
             </div>
             <div className="second-column">
-              <h2 className="title title-second">Entrar no gerenciador de tarefas</h2>
+              <h2 className="title title-second"> Gerenciador de tarefas</h2>
               <div className="social-media">
                 <ul className="list-social-media">
                   <a className="link-social-media" href="https://www.facebook.com/isaac.kapela.1/photos_by?locale=pt_BR">

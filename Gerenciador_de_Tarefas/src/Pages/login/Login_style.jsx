@@ -18,7 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100;
+    width: 100%;
     background-color: #ecf0f1;
 }
 
@@ -260,7 +260,6 @@ input:-webkit-autofill {
     z-index: 13;
 }
 
-/* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE */
 .sign-in-js .first-content .second-column {
     z-index: -1;
     position: relative;
